@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import getGeocoding from "./utils/getGeocoding";
+import { Address } from "./utils/getGeocoding";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    /*
+      1. Make sure address is in valid format
+      2. Make sure that any spaces are replaced with +
+      3. Check last item in address.split(',') to make sure it's a valid zip code
+    */
+    const address: Address = {
+      street: "429+South+Abbey+Hill+Lane",
+      city: "Palatine",
+      state: "IL",
+      zip: "60067",
+    };
+    getGeocoding(address);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>React App</h1>
     </div>
   );
-}
+};
 
 export default App;
