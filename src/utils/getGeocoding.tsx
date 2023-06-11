@@ -1,5 +1,3 @@
-import parseAddress from "./parseAddress";
-
 export type Address = {
   street: string;
   city: string;
