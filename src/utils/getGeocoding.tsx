@@ -27,7 +27,7 @@ const getGeocoding = async (address: Address) => {
   const url: string = createGeocodingURL(address);
 
   console.log("Geocoding ", url);
-  fetch(url)
+  fetch(url, { headers: { Accept: "application/json" } })
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
