@@ -18,6 +18,7 @@ const Search = ({
       <button
         className="btn"
         onClick={() => {
+          if (search === "") return;
           searchForWeather();
           setSearch("");
         }}
