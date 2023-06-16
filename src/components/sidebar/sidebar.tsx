@@ -16,9 +16,7 @@ export type SiderbarType = {
 
 const Sidebar = ({ setHourlyLink }: SiderbarType) => {
   const [forecasts, setForecasts] = useState<ForecastTuple[]>([]);
-  const [search, setSearch] = useState<string>(
-    "429 South Abbey Hill Lane, Palatine, IL 60067"
-  );
+  const [search, setSearch] = useState<string>("");
 
   const searchForWeather = async () => {
     const data = await getGeocoding(formatAddress(search));
