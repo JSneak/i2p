@@ -54,7 +54,7 @@ const Dashboard = ({ hourlyLink }: DashboardType) => {
   }, [hourlyLink]);
 
   return (
-    <div className="main-content flex-1">
+    <div className="main-content flex-1 overflow-hidden">
       <div className="relative h-[75%] w-full">
         <DateTimeWidget />
         <div className="absolute bottom-0 right-0">
