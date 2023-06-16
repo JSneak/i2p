@@ -1,27 +1,30 @@
-import React, { useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
-import getGeocoding from "./utils/getGeocoding";
-import { Address } from "./utils/getGeocoding";
+import Dashboard from "./components/dashboard/dashboard";
+import Sidebar from "./components/sidebar/sidebar";
+
+export type backgroundVariants = {
+  rain: string;
+  sun: string;
+};
 
 const App = () => {
-  useEffect(() => {
-    /*
-      1. Make sure address is in valid format
-      2. Make sure that any spaces are replaced with +
-      3. Check last item in address.split(',') to make sure it's a valid zip code
-    */
-    const address: Address = {
-      street: "429+South+Abbey+Hill+Lane",
-      city: "Palatine",
-      state: "IL",
-      zip: "60067",
-    };
-    getGeocoding(address);
-  }, []);
+  const backgroundVariants: backgroundVariants = {
+    rain: "bg-rain bg-cover",
+    sun: "bg-sun",
+  };
+
+  const [background] = useState<keyof backgroundVariants>("rain");
+  const [hourlyLink, setHourlyLink] = useState<string>("");
 
   return (
-    <div>
-      <h1>React App</h1>
+    <div className="bg-gray-800 font-roboto leading-normal tracking-normal">
+      <div
+        className={`flex flex-row bg-gray-300 ${backgroundVariants[background]}`}
+      >
+        <Dashboard hourlyLink={hourlyLink} />
+        <Sidebar setHourlyLink={setHourlyLink} />
+      </div>
     </div>
   );
 };
