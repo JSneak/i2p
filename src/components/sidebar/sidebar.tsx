@@ -45,7 +45,7 @@ const Sidebar = ({ setHourlyLink }: SiderbarType) => {
   };
 
   return (
-    <div className="bg-gray-800 shadow-xl bottom-0 relative h-screen z-10 w-96 content-center bg-[rgba(0,0,0,0.8)]">
+    <div className="shadow-xl bottom-0 relative h-screen z-10 w-96 content-center bg-[rgba(0,0,0,0.8)]">
       <div className="flex flex-col m-4">
         <div className="flex flex-col">
           <Search
